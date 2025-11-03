@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Boldonse&family=League+Spartan:wght@100..900&family=Outfit:wght@100..900&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&family=Zalando+Sans+SemiExpanded:ital,wght@0,200..900;1,200..900&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --pantone-072c: #C8102E;
+  --pantone-290c: #003DA5;
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased;
+  }
+}
+
+@layer utilities {
+  .text-pantone-red {
+    color: var(--pantone-072c);
+  }
+
+  .bg-pantone-red {
+    background-color: var(--pantone-072c);
+  }
+
+  .text-pantone-blue {
+    color: var(--pantone-290c);
+  }
+
+  .bg-pantone-blue {
+    background-color: var(--pantone-290c);
+  }
+
+  .border-pantone-red {
+    border-color: var(--pantone-072c);
+  }
+
+  .border-pantone-blue {
+    border-color: var(--pantone-290c);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-in;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: 200%; /* Twice the width so it loops cleanly */
+  animation: marquee 25s linear infinite;
+}
+
