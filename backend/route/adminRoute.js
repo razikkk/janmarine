@@ -1,5 +1,5 @@
 import express from 'express'
-import { adminLogin, createCareerListing, deleteCareerListing, deletePageContent, getAllCareerListings, getCareerApplications, getCareerListingById, getContactPage, getPageContent, getPdf, submitCareerApplication, updateCareerListing, updateContactPage, uploadPdf, upsertPageContent } from '../controller/adminController.js'
+import { addNews, adminLogin, createCareerListing, deleteCareerListing, deleteNews, deletePageContent, getAllCareerListings, getAllNews, getCareerApplications, getCareerListingById, getContactPage, getNewsById, getPageContent, getPdf, submitCareerApplication, trackContainer, updateCareerListing, updateContactPage, updateNews, uploadPdf, upsertPageContent } from '../controller/adminController.js'
 import upload from '../middleware/upload.js'
 
 const router = express.Router()
@@ -24,6 +24,13 @@ router.delete("/career-listings/:id", deleteCareerListing);
 
 router.post("/career-application", upload.single("cvFile"), submitCareerApplication);
 router.get("/career-application", getCareerApplications);
+
+router.post('/news/add', upload.single('image'), addNews);
+router.get('/news', getAllNews);
+router.get('/news/:id', getNewsById);
+router.put('/news/:id', upload.single('image'), updateNews);
+router.delete('/news/:id', deleteNews);
+router.get("/tracking", trackContainer);
 
 
 export default router

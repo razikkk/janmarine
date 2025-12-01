@@ -19,9 +19,21 @@ import AdminContactPage from './admin/AdminContact';
 import AdminPdfPage from './admin/AdminPdf';
 import AdminCareerListings from './admin/AdminCareerListing';
 import CareerApplications from './admin/CareerApplication';
+import AdminNewsPage from './admin/AdminNews';
+import NewsDetail from './pages/NewsDetail';
+import { useTranslation } from 'react-i18next';
+import { useEffect } from 'react';
+import AdminTrackingPage from './admin/AdminTracking';
+import TrackingPage from './pages/Tracking';
 
 function AppContent() {
   const location = useLocation();
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    document.body.dir = i18n.language === "ar" ? "rtl" : "ltr";
+  }, [i18n.language]);
+
 
   // ✅ Check if the route starts with "/admin"
   const isAdminRoute = location.pathname.startsWith("/admin");
@@ -43,6 +55,10 @@ function AppContent() {
           <Route path="/news" element={<News />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path='/news/:id' element={<NewsDetail/>}/>
+          <Route path='/tracking' element={<TrackingPage/>}/>
+
+
           <Route path="/admin/login" element={<AdminLogin />} />
           <Route path="/admin/home" element={<AdminHome />} />
           <Route path='/admin/about' element={<AdminAboutContent/>}/>
@@ -50,6 +66,8 @@ function AppContent() {
           <Route path='/admin/pdf' element={<AdminPdfPage/>}/>
           <Route path='/admin/career' element={<AdminCareerListings/>}/>
           <Route path='/admin/career-applications' element={<CareerApplications/>}/>
+          <Route path='/admin/news' element={<AdminNewsPage/>}/>
+          <Route path="/admin/tracking" element={<AdminTrackingPage />} />
 
 
 

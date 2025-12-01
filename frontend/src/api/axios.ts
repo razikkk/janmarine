@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:3000/api", // main backend base URL
+  baseURL: "https://affectionate-unnice-nataly.ngrok-free.dev/api", // main backend base URL
   withCredentials: true,
 });
 

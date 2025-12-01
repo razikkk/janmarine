@@ -89,7 +89,6 @@ const Quality = () => {
         Every process is refined with precision and consistency to ensure reliability in every delivery.
       </p>
     </div>
-
     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
       {standards.map((standard, index) => {
         const Icon = standard.icon;

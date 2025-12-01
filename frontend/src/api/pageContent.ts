@@ -52,3 +52,26 @@ export const uploadPdf = (formData: FormData) =>
 
     export const getCareerApplications = ()=>
         API.get('/admin/career-application')
+
+    export const addNews = (data:any)=>
+        API.post('/admin/news/add',data)
+
+    export const getNews = ()=>
+        API.get('/admin/news')
+    
+    export const getNewsById = (id:any)=>
+        API.get(`/admin/news/${id}`)
+
+    export const updateNews = (id:any,data:any)=>
+        API.put(`/admin/news/${id}`,data)
+
+    export const deleteNews = (id:any)=>
+        API.delete(`/admin/news/${id}`)
+
+    // USER SIDE – user enters tracking number
+export const trackShipment = (trackingNumber: string) =>
+    API.get(`/tracking?tracking=${trackingNumber}`);  
+  
+  // ADMIN SIDE – search container / tracking status
+  export const adminTrackShipment = (trackingNumber: string) =>
+    API.get(`/tracking?tracking=${trackingNumber}`);

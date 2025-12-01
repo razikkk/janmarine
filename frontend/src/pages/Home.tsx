@@ -1,7 +1,47 @@
 import { Link } from 'react-router-dom';
-import { Truck, Shield, Clock, Award, ArrowRight, Package, Route, Users } from 'lucide-react';
+import { Truck, Shield, Clock, Award, ArrowRight, Package, Route, Users, Ship, Car } from 'lucide-react';
 
 const Home = () => {
+  const services = [
+    {
+      icon: Ship,
+      title: 'Freight forwarding',
+      description:
+      'Reliable and efficient freight forwarding services ensuring smooth global logistics. We manage end-to-end shipping processes with transparency, speed, and cost-efficiency.',
+    features: [
+      'Air, Sea, and Land Freight Coordination',
+      'Customs Clearance Assistance',
+      'Door-to-Door Delivery',
+      'Real-Time Shipment Tracking'
+    ]
+    },
+    {
+      icon: Package,
+      title: 'Customs Clearance',
+      description:
+      'Streamlined customs clearance services to ensure your shipments move across borders without delays. Our experts handle all documentation and compliance efficiently.',
+    features: [
+      'Import & Export Documentation',
+      'Duty & Tax Calculation',
+      'Regulatory Compliance Support',
+      'Quick Clearance Processing'
+    ]
+    
+    },
+    {
+      icon: Car,
+      title: 'Transporation',
+      description:
+  'Reliable transportation solutions designed to move your goods safely and on time. We manage logistics from pickup to final delivery with complete visibility.',
+features: [
+  'Door-to-Door Delivery',
+  'Domestic & International Transport',
+  'GPS Tracking & Fleet Monitoring',
+  'On-Time Delivery Assurance'
+]
+
+    }
+  ];
   return (
     <div>
 <section className="relative h-[820px] bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center pt-20 text-center">
@@ -24,10 +64,61 @@ const Home = () => {
         <br /> Delivering Excellence
       </h1>
       <p className="text-lg md:text-xl text-gray-300 leading-relaxed font-light max-w-2xl mx-auto">
-        At <span className="font-medium text-white">Janmarine</span>, we move more than cargo —  
-        we move trust. Our commitment to precision, safety, and performance  
-        ensures your business runs without borders.
+        At <span className="font-medium text-white">Janmarine</span>, From Land, Air & Sea – Our Company is everywhere to serve you.
       </p>
+    </div>
+  </div>
+</section>
+
+<section className="relative py-24 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden font-[Outfit]">
+  <div className="absolute inset-0">
+    <div className="w-[600px] h-[600px] bg-pantone-red/5 rounded-full blur-3xl absolute -top-40 -left-40"></div>
+    <div className="w-[600px] h-[600px] bg-pantone-blue/5 rounded-full blur-3xl absolute bottom-0 right-0"></div>
+  </div>
+
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+    {/* Header */}
+    <div className="text-center mb-20">
+      <h2 className="text-5xl md:text-6xl font-semibold text-gray-900 mb-6 tracking-tight">
+        What We Offer
+      </h2>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+        From transportation to warehousing, we deliver complete logistics solutions
+        designed to move your business forward — with precision and reliability.
+      </p>
+    </div>
+
+    {/* Services Grid */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+      {services.map((service, index) => {
+        const Icon = service.icon;
+        return (
+          <div
+            key={index}
+            className="group bg-white/90 backdrop-blur-md border-2 border-blue-800 rounded-2xl p-10 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
+          >
+            <div className="flex items-start space-x-6">
+              <div className="bg-gradient-to-br from-pantone-red to-pantone-blue p-5 rounded-xl shadow-md group-hover:scale-110 transition-transform duration-500">
+                <Icon className="w-10 h-10 text-black" />
+              </div>
+              <div className="flex-1">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-3 group-hover:text-pantone-blue transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 mb-5 leading-relaxed">{service.description}</p>
+                <ul className="space-y-2">
+                  {service.features.map((feature, idx) => (
+                    <li key={idx} className="flex items-center text-gray-700">
+                      <div className="w-2.5 h-2.5 bg-pantone-blue rounded-full mr-3"></div>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        );
+      })}
     </div>
   </div>
 </section>

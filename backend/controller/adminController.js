@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken'
 import PageContent from "../model/pageContent.js";
 import CareerListing from "../model/careerListing.js";
 import CareerApplication from "../model/careerApplication.js";
+import newsModel from "../model/newsModel.js";
 
 
 export const adminLogin = async (req, res) => {
@@ -320,3 +321,112 @@ export const submitCareerApplication = async (req, res) => {
       }
     
   };
+  export const addNews = async (req, res) => {
+    try {
+      const { title, date, category, excerpt, featured } = req.body;
+  
+      const image = req.file ? req.file.path : null;
+  
+      const news = new newsModel({
+        title,
+        date,
+        category,
+        image,
+        excerpt,
+        featured,
+      });
+  
+      await news.save();
+      res.status(201).json({ success: true, message: "News added successfully", news });
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({ success: false, message: error.message });
+    }
+  };
+  
+  export const getAllNews = async (req, res) => {
+    try {
+      const newsList = await newsModel.find().sort({ date: -1 });
+      res.status(200).json({ success: true, newsList });
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({ success: false, message: error.message });
+    }
+  };
+  
+  export const getNewsById = async (req, res) => {
+    try {
+      const news = await newsModel.findById(req.params.id);
+      if (!news) return res.status(404).json({ success: false, message: "News not found" });
+      res.status(200).json({ success: true, news });
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({ success: false, message: error.message });
+    }
+  };
+  
+  export const updateNews = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const data = { ...req.body };
+  
+      if (req.file) data.image = req.file.path; // update image if re-uploaded
+  
+      const updated = await newsModel.findByIdAndUpdate(id, data, { new: true });
+      if (!updated) return res.status(404).json({ message: "News not found" });
+  
+      res.status(200).json({ message: "News updated", updated });
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({ success: false, message: error.message });
+    }
+  };
+  
+  export const deleteNews = async (req, res) => {
+    try {
+      const { id } = req.params;
+      const deleted = await newsModel.findByIdAndDelete(id);
+      if (!deleted) return res.status(404).json({ message: "News not found" });
+      res.status(200).json({ message: "News deleted successfully" });
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({ success: false, message: error.message });
+    }
+  };
+
+  export const trackContainer = async (req, res) => {
+    try {
+      const { tracking } = req.query;
+  
+      if (!tracking) {
+        return res.status(400).json({ message: "Tracking number required" });
+      }
+  
+      // BASIC AUTH (user:key → base64)
+      const user = "admin_api";
+      const key = "$espaB7u2#ug4g&t4c3-";
+      const basicAuth = Buffer.from(`${user}:${key}`).toString("base64");
+  
+      // External API call
+      const response = await axios.get(
+        `http://janaip.mypsx.net:8069/api/v1/search?tracking=${tracking}`,
+        {
+          headers: {
+            "Authorization": `Basic ${basicAuth}`,
+            // add bearer only if required:
+            // "Authorization": `Bearer YOUR_TOKEN`,
+          }
+        }
+      );
+  
+      return res.json(response.data);
+  
+    } catch (error) {
+      console.log(error.response?.data || error);
+      return res.status(500).json({
+        message: "Failed to fetch tracking details",
+        error: error.message,
+      });
+    }
+  };
+  

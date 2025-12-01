@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Menu, X, Briefcase, FileText, Phone, Info, Shield, CheckCircle, Map } from "lucide-react";
+import { Menu, X, Briefcase, FileText, Phone, Info, Shield, CheckCircle, Map, Paperclip } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const AdminHome: React.FC = () => {
@@ -14,8 +14,10 @@ const AdminHome: React.FC = () => {
     { name: "About", icon: <Info size={20} />, path: "/admin/about" },
     { name: "Contact", icon: <Phone size={20} />, path: "/admin/contact" },
     // { name: "HSE", icon: <Shield size={20} />, path: "/admin/hse" },
-    { name: "Quality", icon: <CheckCircle size={20} />, path: "/admin/pdf" },
+    { name: "Quality & HSE", icon: <CheckCircle size={20} />, path: "/admin/pdf" },
     { name: "Tracking", icon: <Map size={20} />, path: "/admin/tracking" },
+    { name: "News", icon: <Paperclip size={20} />, path: "/admin/news" },
+
   ];
 
   return (
