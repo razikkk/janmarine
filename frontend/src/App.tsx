@@ -28,11 +28,9 @@ import TrackingPage from './pages/Tracking';
 
 function AppContent() {
   const location = useLocation();
-  const { i18n } = useTranslation();
+  
 
-  useEffect(() => {
-    document.body.dir = i18n.language === "ar" ? "rtl" : "ltr";
-  }, [i18n.language]);
+ 
 
 
   // ✅ Check if the route starts with "/admin"
@@ -48,15 +46,15 @@ function AppContent() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
-          <Route path="/fleet" element={<Fleet />} />
-          <Route path="/fleet/:id" element={<FleetDetail />} />
+          {/* <Route path="/fleet" element={<Fleet />} /> */}
+          {/* <Route path="/fleet/:id" element={<FleetDetail />} /> */}
           <Route path="/quality" element={<Quality />} />
           <Route path="/hse" element={<HSE />} />
           <Route path="/news" element={<News />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/contact" element={<Contact />} />
           <Route path='/news/:id' element={<NewsDetail/>}/>
-          <Route path='/tracking' element={<TrackingPage/>}/>
+          {/* <Route path='/tracking' element={<TrackingPage/>}/> */}
 
 
           <Route path="/admin/login" element={<AdminLogin />} />

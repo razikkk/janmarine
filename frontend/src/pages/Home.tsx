@@ -4,7 +4,7 @@ import { Truck, Shield, Clock, Award, ArrowRight, Package, Route, Users, Ship, C
 const Home = () => {
   const services = [
     {
-      icon: Ship,
+      image: '/freight.jpg',
       title: 'Freight forwarding',
       description:
       'Reliable and efficient freight forwarding services ensuring smooth global logistics. We manage end-to-end shipping processes with transparency, speed, and cost-efficiency.',
@@ -16,7 +16,7 @@ const Home = () => {
     ]
     },
     {
-      icon: Package,
+      image: '/customer.jpg',
       title: 'Customs Clearance',
       description:
       'Streamlined customs clearance services to ensure your shipments move across borders without delays. Our experts handle all documentation and compliance efficiently.',
@@ -29,7 +29,7 @@ const Home = () => {
     
     },
     {
-      icon: Car,
+      image: '/transportation.jpg',
       title: 'Transporation',
       description:
   'Reliable transportation solutions designed to move your goods safely and on time. We manage logistics from pickup to final delivery with complete visibility.',
@@ -44,17 +44,17 @@ features: [
   ];
   return (
     <div>
-<section className="relative h-[820px] bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center pt-20 text-center">
-  <div className="absolute inset-0 opacity-20">
+<section className="relative h-[850px] bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center pt-20 text-center mt-[-125px]">
+  <div className="absolute inset-0 ">
     <video
-      src="herobg.mp4"
+      src="jan-hero.mov"
       className="w-full h-full object-cover"
       autoPlay
       muted
       loop
       playsInline
     />
-    <div className="absolute inset-0 bg-black/40"></div>
+    {/* <div className="absolute inset-0 bg-black/40"></div> */}
   </div>
 
   <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-white font-[Outfit]">
@@ -71,54 +71,61 @@ features: [
 </section>
 
 <section className="relative py-24 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden font-[Outfit]">
-  <div className="absolute inset-0">
-    <div className="w-[600px] h-[600px] bg-pantone-red/5 rounded-full blur-3xl absolute -top-40 -left-40"></div>
-    <div className="w-[600px] h-[600px] bg-pantone-blue/5 rounded-full blur-3xl absolute bottom-0 right-0"></div>
+  {/* Background Glow Effects */}
+  <div className="absolute inset-0 pointer-events-none">
+    <div className="w-[600px] h-[600px] bg-pantone-red/10 rounded-full blur-3xl absolute -top-40 -left-40"></div>
+    <div className="w-[600px] h-[600px] bg-pantone-blue/10 rounded-full blur-3xl absolute bottom-0 right-0"></div>
   </div>
 
-  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
+  <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     {/* Header */}
     <div className="text-center mb-20">
       <h2 className="text-5xl md:text-6xl font-semibold text-gray-900 mb-6 tracking-tight">
         What We Offer
       </h2>
       <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-        From transportation to warehousing, we deliver complete logistics solutions
-        designed to move your business forward — with precision and reliability.
+        Complete logistics and supply-chain solutions designed with precision, efficiency,
+        and world-class reliability.
       </p>
     </div>
 
     {/* Services Grid */}
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-      {services.map((service, index) => {
-        const Icon = service.icon;
-        return (
-          <div
-            key={index}
-            className="group bg-white/90 backdrop-blur-md border-2 border-blue-800 rounded-2xl p-10 shadow-md hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
-          >
-            <div className="flex items-start space-x-6">
-              <div className="bg-gradient-to-br from-pantone-red to-pantone-blue p-5 rounded-xl shadow-md group-hover:scale-110 transition-transform duration-500">
-                <Icon className="w-10 h-10 text-black" />
-              </div>
-              <div className="flex-1">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-3 group-hover:text-pantone-blue transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 mb-5 leading-relaxed">{service.description}</p>
-                <ul className="space-y-2">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center text-gray-700">
-                      <div className="w-2.5 h-2.5 bg-pantone-blue rounded-full mr-3"></div>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      {services.map((service, index) => (
+        <div
+          key={index}
+          className="group bg-white/80 backdrop-blur-xl border border-gray-200 rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
+        >
+          {/* Image */}
+          <div className="h-60 w-full overflow-hidden">
+            <img
+              src={service.image}
+              alt={service.title}
+              className="w-full h-full object-cover transform group-hover:scale-110 transition-all duration-700"
+            />
           </div>
-        );
-      })}
+
+          {/* Content */}
+          <div className="p-10">
+            <h3 className="text-3xl font-semibold text-gray-900 mb-4 group-hover:text-pantone-blue transition-colors">
+              {service.title}
+            </h3>
+            <p className="text-gray-600 mb-6 leading-relaxed text-lg">
+              {service.description}
+            </p>
+
+            {/* Features */}
+            <ul className="space-y-3">
+              {service.features.map((feature, idx) => (
+                <li key={idx} className="flex items-start">
+                  <div className="w-3 h-3 bg-pantone-blue rounded-full mt-2 mr-3"></div>
+                  <span className="text-gray-700 text-lg">{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
     </div>
   </div>
 </section>
@@ -179,22 +186,22 @@ features: [
 </section>
 
 
-<section className="py-20 bg-gradient-to-b from-gray-50 to-white font-[Outfit]">
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+{/* <section className="py-20 bg-gradient-to-b from-gray-50 to-white font-[Outfit]">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"> */}
     {/* Section Header */}
-    <div className="text-center mb-16">
+    {/* <div className="text-center mb-16">
       <h2 className="text-4xl md:text-5xl font-semibold text-gray-900 mb-4">
         Our <span className="text-pantone-red">Fleet</span> Categories
       </h2>
       <p className="text-lg text-gray-500 max-w-2xl mx-auto">
         Modern, high-performance vehicles tailored for every logistics need.
       </p>
-    </div>
+    </div> */}
 
     {/* Fleet Cards */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+    {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-10"> */}
       {/* Card 1 */}
-      <Link to="/fleet" className="group block">
+      {/* <Link to="/fleet" className="group block">
         <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
           <div className="relative h-56 overflow-hidden">
             <img
@@ -214,10 +221,10 @@ features: [
             </p>
           </div>
         </div>
-      </Link>
+      </Link> */}
 
       {/* Card 2 */}
-      <Link to="/fleet" className="group block">
+      {/* <Link to="/fleet" className="group block">
         <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
           <div className="relative h-56 overflow-hidden">
             <img
@@ -237,10 +244,10 @@ features: [
             </p>
           </div>
         </div>
-      </Link>
+      </Link> */}
 
       {/* Card 3 */}
-      <Link to="/fleet" className="group block">
+      {/* <Link to="/fleet" className="group block">
         <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500">
           <div className="relative h-56 overflow-hidden">
             <img
@@ -263,7 +270,7 @@ features: [
       </Link>
     </div>
   </div>
-</section>
+</section> */}
 
 
 <section className="relative py-20  text-white overflow-hidden font-[Outfit]">

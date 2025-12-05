@@ -171,7 +171,7 @@ const Careers = () => {
   };
   return (
     <div className="animate-fade-in">
-     <section className="relative h-[820px] bg-gradient-to-br from-gray-900 to-gray-800 flex items-center">
+     <section className="relative h-[850px] bg-gradient-to-br from-gray-900 to-gray-800 flex items-center mt-[-125px]">
   {/* Background Image with overlay */}
   <div className="absolute inset-0 opacity-30">
     <img
@@ -203,7 +203,7 @@ const Careers = () => {
   </div>
 
   {/* Gradient Overlay for Depth */}
-  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
+  {/* <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div> */}
 </section>
 
 <section className="py-24 bg-gradient-to-b from-gray-50 to-white font-[Outfit]">

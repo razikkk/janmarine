@@ -13,10 +13,10 @@ const About = () => {
 
   return (
     <div className="animate-fade-in">
-      <section className="relative h-[820px] bg-gradient-to-br from-gray-900 to-gray-800 flex items-center">
-        <div className="absolute inset-0 opacity-20">
+      <section className="relative h-[850px] bg-gradient-to-br from-gray-900 to-gray-800 flex items-center mt-[-125px]">
+        <div className="absolute inset-0 ">
           <img
-            src="https://images.pexels.com/photos/4391470/pexels-photo-4391470.jpeg?auto=compress&cs=tinysrgb&w=1920"
+            src="/about-jan.jpg"
             alt="About Us"
             className="w-full h-full object-cover"
           />

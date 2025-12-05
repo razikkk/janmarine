@@ -68,7 +68,7 @@ const HSE = () => {
 
   return (
     <div className="animate-fade-in">
-    <section className="relative h-[820px] bg-gradient-to-br from-gray-900 to-gray-800 flex items-center">
+    <section className="relative h-[850px] bg-gradient-to-br from-gray-900 to-gray-800 flex items-center mt-[-125px]">
   <div className="absolute inset-0 opacity-20">
     <img
       src="https://images.pexels.com/photos/4391470/pexels-photo-4391470.jpeg?auto=compress&cs=tinysrgb&w=1920"

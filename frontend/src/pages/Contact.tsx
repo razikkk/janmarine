@@ -39,7 +39,7 @@ const Contact = () => {
 
   return (
     <div className="animate-fade-in">
-     <section className="relative h-[820px] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center overflow-hidden font-[Outfit]">
+     <section className="relative h-[850px] bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center overflow-hidden font-[Outfit] mt-[-125px]">
   {/* Background Image */}
   <div className="absolute inset-0">
     <img

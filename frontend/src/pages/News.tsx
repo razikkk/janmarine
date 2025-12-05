@@ -45,11 +45,11 @@ const News = () => {
   return (
     <div className="animate-fade-in font-[Outfit]">
       {/* ---------- Hero Section ---------- */}
-      <section className="relative h-[820px] bg-gradient-to-br from-gray-900 to-gray-800 flex items-center">
+      <section className="relative h-[850px] bg-gradient-to-br from-gray-900 to-gray-800 flex items-center mt-[-125px]">
   {/* Background Image with overlay */}
   <div className="absolute inset-0 opacity-30">
     <img
-      src="https://images.pexels.com/photos/3184312/pexels-photo-3184312.jpeg?auto=compress&cs=tinysrgb&w=1920"
+      src="/jan-news.jpg"
       alt="Join Our Team"
       className="w-full h-full object-cover"
     />
@@ -70,7 +70,7 @@ const News = () => {
   </div>
 
   {/* Gradient Overlay for Depth */}
-  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div>
+  {/* <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 to-transparent"></div> */}
 </section>
 
       {/* ---------- Featured News ---------- */}

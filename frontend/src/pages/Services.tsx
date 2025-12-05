@@ -42,12 +42,12 @@ const Services = () => {
 
   return (
     <div className="animate-fade-in">
-    <section className="relative h-[820px] bg-gradient-to-br from-gray-900 to-gray-800 flex items-center">
+    <section className="relative h-[850px]  flex items-center mt-[-125px]">
   <div className="absolute inset-0">
     <img
-      src="https://images.pexels.com/photos/4391470/pexels-photo-4391470.jpeg?auto=compress&cs=tinysrgb&w=1920"
+      src="/jan-service.jpg"
       alt="Our Services"
-      className="w-full h-full object-cover opacity-25"
+      className="w-full h-full object-cover"
     />
     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/50 to-transparent" />
   </div>
@@ -97,7 +97,7 @@ const Services = () => {
                 <Icon className="w-10 h-10 text-black" />
               </div>
               <div className="flex-1">
-                <h3 className="text-2xl font-semibold text-gray-900 mb-3 group-hover:text-pantone-red transition-colors">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-3 group-hover:text-pantone-blue transition-colors">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 mb-5 leading-relaxed">{service.description}</p>
