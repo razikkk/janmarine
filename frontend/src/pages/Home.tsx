@@ -45,7 +45,7 @@ features: [
   return (
     <div>
 <section className="relative h-[850px] bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center pt-20 text-center mt-[-125px]">
-  <div className="absolute inset-0 ">
+  <div className="absolute inset-0">
     <video
       src="jan-hero.mov"
       className="w-full h-full object-cover"
@@ -54,21 +54,26 @@ features: [
       loop
       playsInline
     />
-    {/* <div className="absolute inset-0 bg-black/40"></div> */}
+    <div className="absolute inset-0 bg-black/40"></div>
   </div>
 
-  <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-white font-[Outfit]">
-    <div className="space-y-8 animate-slide-up">
-      <h1 className="text-5xl md:text-7xl font-semibold leading-tight">
-        Driving Reliability,  
-        <br /> Delivering Excellence
+  <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-white font-[Outfit] space-y-6">
+      
+      <h1 className="text-7xl md:text-8xl font-bold tracking-wide drop-shadow-lg">
+        JANMARINE
       </h1>
-      <p className="text-lg md:text-xl text-gray-300 leading-relaxed font-light max-w-2xl mx-auto">
-        At <span className="font-medium text-white">Janmarine</span>, From Land, Air & Sea – Our Company is everywhere to serve you.
+
+      <h2 className="text-4xl md:text-5xl font-light opacity-90">
+        Driving Reliability,<br /> Delivering Excellence
+      </h2>
+
+      <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto font-light">
+        From Land, Air & Sea – Janmarine is everywhere to serve you.
       </p>
-    </div>
+
   </div>
 </section>
+
 
 <section className="relative py-24 bg-gradient-to-br from-gray-50 via-white to-gray-100 overflow-hidden font-[Outfit]">
   {/* Background Glow Effects */}
